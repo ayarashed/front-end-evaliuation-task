@@ -1,0 +1,6 @@
+.returnedUser .card {
+  border: none;
+}
+.returnedUser .card span {
+  display: inline-block;
+}

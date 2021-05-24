@@ -1,0 +1,349 @@
+.postleaverequest {
+  margin-bottom: 20px;
+  > .container-fluid {
+    > div {
+      border: 1px solid #d3d3d3;
+      margin-top: 3px;
+      .header {
+        background-color: #d3d3d3;
+        color: black;
+        padding: 5px 20px;
+        margin-bottom: 10px;
+        h6 {
+          letter-spacing: -0.5px;
+          margin-bottom: 0px;
+        }
+        .request-number {
+          text-align: right;
+          p {
+            margin-bottom: 0px;
+            font-size: 13px;
+            font-weight: 500;
+            span {
+              margin-right: 5px;
+              color: #a9a9a9;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .content {
+        margin-bottom: 20px;
+        .search {
+          background-color: #d3d3d3;
+          .img-bar {
+            border-right: 1px solid #636262;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #24298f;
+            font-size: 24px;
+          }
+          .search-bar {
+            margin: 3px 0px;
+            position: relative;
+            .form-control {
+              border: 1px solid #a9a9a9;
+              border-right: none;
+            }
+            .input-group-text {
+              background-color: white;
+              border: 1px solid #a9a9a9;
+              border-left: none;
+              color: #a9a9a9;
+            }
+          }
+        }
+        .empolyee-info {
+          .card {
+            border: none;
+            margin: 5px 0px;
+            .card-avatar {
+              img {
+                width: 100%;
+              }
+            }
+            .body--border {
+              border-left: 3px solid #303595;
+              background-color: #f1f1f3;
+            }
+            .card-body {
+              ul {
+                list-style: none;
+                li {
+                  font-weight: 600;
+                  font-size: 16px;
+                  span {
+                    &:first-child {
+                      text-align: right;
+                      width: 110px;
+                      font-size: 15px;
+                      font-weight: 700;
+                    }
+                  }
+                  span {
+                    font-size: 14px;
+                    margin-left: 10px;
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .leaverequest-form {
+          border: 1px solid #d3d3d3;
+          .form {
+            form {
+              margin: 20px 0px;
+              fieldset {
+                border: 1px solid #d3d3d3;
+                padding: 10px 20px;
+                .leavetoavail-label,
+                .leavesalary-label,
+                .expected-date,
+                .expected-end-date-label {
+                  text-align: right;
+                  @media screen and (max-width: 1024px) {
+                    text-align: left;
+                  }
+                  @media screen and (min-width: 320px) and (max-width: 480px) {
+                    font-size: 12px;
+                  }
+                }
+                .leavetoavail,
+                .leavesalary,
+                .expected-date {
+                  margin-bottom: 10px;
+                }
+                .expected-end-date {
+                  .expected-end-date-content {
+                    background-color: #f1f1f3;
+                    border-radius: 5px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                  }
+                  label {
+                    margin-right: 10px;
+                  }
+                  label,
+                  .form-select,
+                  input {
+                    display: inline-block;
+                    width: auto;
+                    @media screen and (max-width: 1024px) {
+                      display: block;
+                    }
+                    @media screen and (max-width: 768px) {
+                      width: 100%;
+                      font-size: 12px;
+                    }
+                  }
+                  .form-select,
+                  input {
+                    background-color: #f1f1f3;
+                  }
+                  .expected-end-date-label {
+                    padding-right: 22px;
+                  }
+                  button {
+                    margin: auto;
+                    width: auto;
+                    border: none;
+                    padding: 0px 50px 6px 50px;
+                    border-bottom-left-radius: 30px;
+                    border-bottom-right-radius: 30px;
+                    font-size: 20px;
+                    font-weight: 800;
+                  }
+                }
+                .leavesalary {
+                  .yes {
+                    margin-right: 10px;
+                  }
+                }
+                .expected-date {
+                  input {
+                    @media screen and (min-width: 320px) and (max-width: 1024px) {
+                      margin-bottom: 5px;
+                    }
+                  }
+                }
+                .number-days {
+                  text-align: center;
+                  @media screen and (max-width: 768px) {
+                    text-align: left;
+                  }
+                }
+                .total-days {
+                  margin-top: 20px;
+                }
+                .guarantor,
+                .replacement {
+                  border: 1px solid #d3d3d3;
+                  margin-bottom: 10px;
+                  .guarantor-header,
+                  .replacement-header {
+                    background-color: #d3d3d3;
+                    padding: 5px 10px;
+                    margin-bottom: 5px;
+                  }
+                  .replacement-selection,
+                  .guarantor-selection {
+                    margin: 10px 5px;
+                    .form-select {
+                      width: 100%;
+                    }
+                  }
+                }
+                .contact-details {
+                  border: 1px solid #d3d3d3;
+                  margin: 10px 0px;
+                  .contact-details-header {
+                    background-color: #d3d3d3;
+                    padding: 5px 10px;
+                    margin-bottom: 5px;
+                  }
+                  .contact-details-content {
+                    padding: 10px 20px;
+                    label {
+                      text-align: right;
+                      @media screen and (max-width: 768px) {
+                        text-align: left;
+                      }
+                    }
+                    input {
+                      background-color: #f1f1f3;
+                    }
+                  }
+                }
+              }
+              .notes {
+                .attatchment,
+                .remarks {
+                  border: 1px solid #d3d3d3;
+                  margin: 10px 0px;
+                  height: 100%;
+                  margin-bottom: 5px;
+                  .remarks-header,
+                  .attatchment-header {
+                    background-color: #d3d3d3;
+                    padding: 5px 10px;
+                    margin-bottom: 5px;
+                  }
+                  .attatchment-file,
+                  .remarks-text {
+                    margin: 10px 5px;
+                    textarea {
+                      width: 100%;
+                      resize: none;
+                      border-color: #d3d3d3;
+                    }
+                  }
+                  .attatchment-file {
+                    label {
+                      cursor: pointer;
+                      margin-left: 10px;
+                      color: #d3d3d3;
+                    }
+                    .form-control {
+                      display: inline-block;
+                      width: 80%;
+                    }
+
+                    #upload-photo {
+                      opacity: 0;
+                      position: absolute;
+                      z-index: -1;
+                    }
+                    .filesize {
+                      margin-top: 10px;
+                      .attention {
+                        color: #24298f;
+                        margin-right: 5px;
+                      }
+                    }
+                  }
+                }
+              }
+              .action {
+                margin-top: 50px;
+                text-align: center;
+                input {
+                  font-size: 18px;
+                  margin: 0px 5px;
+                  padding: 5px 25px;
+                  border: none;
+                  border-radius: 5px;
+                  margin-bottom: 10px;
+                  &:last-of-type {
+                    background-color: #24298f;
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .employee-days-table {
+          background-color: #d3d3d3;
+          padding: 5px 0px 5px 0px;
+          .days {
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 0px 0px 3px;
+            p{
+                @media screen and (min-width:481px ) and (max-width:768px) {
+                    font-size: 11px;
+                }
+            }
+          }
+        }
+      }
+    }
+  }
+  .disable {
+    display: none;
+    max-height: 200px;
+    overflow: auto;
+    box-shadow: 0 0 4px gray;
+  }
+  .show-data {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 999999;
+    background-color: white;
+  }
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  background-color: gray;
+}
+.show-error {
+  display: block;
+}
+.hide-error {
+  display: none;
+}
+.show{
+  display: block;
+  color:#24298f ;
+  margin-right: 5px;
+}
+.disable{
+  display: none;
+}

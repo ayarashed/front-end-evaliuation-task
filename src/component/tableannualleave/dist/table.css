@@ -1,0 +1,25 @@
+.tableannualdata tbody, .tableannualdata td, .tableannualdata tfoot, .tableannualdata th, .tableannualdata thead, .tableannualdata tr {
+  font-size: 14px;
+  text-align: center;
+}
+
+.leaves ul {
+  list-style: none;
+  padding-inline-start: 0px;
+}
+.leaves ul h6 {
+  margin-left: 8px;
+}
+.leaves ul li {
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  font-weight: 400;
+  border-bottom: 1px solid #FDFDFD;
+  font-size: 13px;
+}
+.leaves ul li span {
+  display: inline-block;
+  float: right;
+}

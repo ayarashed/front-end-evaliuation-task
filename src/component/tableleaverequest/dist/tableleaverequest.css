@@ -1,0 +1,68 @@
+.tableleaverequest {
+  width: 100%;
+}
+.tableleaverequest tbody,
+.tableleaverequest td,
+.tableleaverequest tfoot,
+.tableleaverequest th,
+.tableleaverequest thead,
+.tableleaverequest tr {
+  font-size: 13px;
+  text-align: center;
+}
+.tableleaverequest thead {
+  background-color: #d3d3d3;
+}
+.tableleaverequest th {
+  padding: 15px 10px;
+}
+.tableleaverequest tbody tr {
+  border-bottom: 1px solid #d3d3d3;
+  background-color: #FAFAFA;
+}
+.tableleaverequest tbody tr:hover {
+  background-color: #F2F2F2;
+  border-color: #24298F;
+  border-left: 2px solid #24298F;
+}
+.tableleaverequest tbody tr td {
+  padding: 0px 10px;
+}
+.tableleaverequest tbody tr td img {
+  width: 100%;
+}
+
+.final-level-approved {
+  border-left: 5px solid #3C763D;
+}
+
+.hold {
+  border-left: 5px solid #6D4E07;
+}
+
+.returned {
+  border-left: 5px solid #FF0000;
+}
+
+.underapproval {
+  border-left: 5px solid #DEA523;
+}
+
+.closed-transaction {
+  border-left: 5px solid #900404;
+}
+
+.request-level {
+  border-left: 5px solid #0C61B9;
+}
+
+.selected {
+  background-color: #F2F2F2;
+  border-color: #24298F;
+  border-left: 2px solid #24298F;
+}
+
+.nonselected {
+  border-bottom: 1px solid #d3d3d3;
+  background-color: #FAFAFA;
+}

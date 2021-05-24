@@ -1,0 +1,307 @@
+.postleaverequest {
+  margin-bottom: 20px;
+}
+.postleaverequest > .container-fluid > div {
+  border: 1px solid #D3D3D3;
+  margin-top: 3px;
+}
+.postleaverequest > .container-fluid > div .header {
+  background-color: #D3D3D3;
+  color: black;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+}
+.postleaverequest > .container-fluid > div .header h6 {
+  letter-spacing: -0.5px;
+  margin-bottom: 0px;
+}
+.postleaverequest > .container-fluid > div .header .request-number {
+  text-align: right;
+}
+.postleaverequest > .container-fluid > div .header .request-number p {
+  margin-bottom: 0px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.postleaverequest > .container-fluid > div .header .request-number p span {
+  margin-right: 5px;
+  color: #A9A9A9;
+  font-size: 16px;
+}
+.postleaverequest > .container-fluid > div .content {
+  margin-bottom: 20px;
+}
+.postleaverequest > .container-fluid > div .content .search {
+  background-color: #D3D3D3;
+}
+.postleaverequest > .container-fluid > div .content .search .img-bar {
+  border-right: 1px solid #636262;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #24298F;
+  font-size: 24px;
+}
+.postleaverequest > .container-fluid > div .content .search .search-bar {
+  margin: 3px 0px;
+  position: relative;
+}
+.postleaverequest > .container-fluid > div .content .search .search-bar .form-control {
+  border: 1px solid #A9A9A9;
+  border-right: none;
+}
+.postleaverequest > .container-fluid > div .content .search .search-bar .input-group-text {
+  background-color: white;
+  border: 1px solid #A9A9A9;
+  border-left: none;
+  color: #A9A9A9;
+}
+.postleaverequest > .container-fluid > div .content .empolyee-info .card {
+  border: none;
+  margin: 5px 0px;
+}
+.postleaverequest > .container-fluid > div .content .empolyee-info .card .card-avatar img {
+  width: 100%;
+}
+.postleaverequest > .container-fluid > div .content .empolyee-info .card .body--border {
+  border-left: 3px solid #303595;
+  background-color: #F1F1F3;
+}
+.postleaverequest > .container-fluid > div .content .empolyee-info .card .card-body ul {
+  list-style: none;
+}
+.postleaverequest > .container-fluid > div .content .empolyee-info .card .card-body ul li {
+  font-weight: 600;
+  font-size: 16px;
+}
+.postleaverequest > .container-fluid > div .content .empolyee-info .card .card-body ul li span:first-child {
+  text-align: right;
+  width: 110px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.postleaverequest > .container-fluid > div .content .empolyee-info .card .card-body ul li span {
+  font-size: 14px;
+  margin-left: 10px;
+  display: inline-block;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form {
+  border: 1px solid #D3D3D3;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form {
+  margin: 20px 0px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset {
+  border: 1px solid #D3D3D3;
+  padding: 10px 20px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .leavetoavail-label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .leavesalary-label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-date, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date-label {
+  text-align: right;
+}
+@media screen and (max-width: 1024px) {
+  .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .leavetoavail-label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .leavesalary-label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-date, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date-label {
+    text-align: left;
+  }
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .leavetoavail, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .leavesalary, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-date {
+  margin-bottom: 10px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date .expected-end-date-content {
+  background-color: #F1F1F3;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date label {
+  margin-right: 10px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date .form-select, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date input {
+  display: inline-block;
+  width: auto;
+}
+@media screen and (max-width: 1024px) {
+  .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date .form-select, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date input {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {
+  .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date .form-select, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date input {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date .form-select, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date input {
+  background-color: #F1F1F3;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date .expected-end-date-label {
+  padding-right: 22px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-end-date button {
+  margin: auto;
+  width: auto;
+  border: none;
+  padding: 0px 50px 6px 50px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-size: 20px;
+  font-weight: 800;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .leavesalary .yes {
+  margin-right: 10px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .expected-date label {
+  margin-bottom: 15px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .number-days {
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .number-days {
+    text-align: left;
+  }
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .total-days {
+  margin-top: 20px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .guarantor, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .replacement {
+  border: 1px solid #D3D3D3;
+  margin-bottom: 10px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .guarantor .guarantor-header, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .guarantor .replacement-header, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .replacement .guarantor-header, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .replacement .replacement-header {
+  background-color: #D3D3D3;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .guarantor .replacement-selection, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .guarantor .guarantor-selection, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .replacement .replacement-selection, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .replacement .guarantor-selection {
+  margin: 10px 5px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .guarantor .replacement-selection .form-select, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .guarantor .guarantor-selection .form-select, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .replacement .replacement-selection .form-select, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .replacement .guarantor-selection .form-select {
+  width: 100%;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .contact-details {
+  border: 1px solid #D3D3D3;
+  margin: 10px 0px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .contact-details .contact-details-header {
+  background-color: #D3D3D3;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .contact-details .contact-details-content {
+  padding: 10px 20px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .contact-details .contact-details-content label {
+  text-align: right;
+}
+@media screen and (max-width: 768px) {
+  .postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .contact-details .contact-details-content label {
+    text-align: left;
+  }
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form fieldset .contact-details .contact-details-content input {
+  background-color: #F1F1F3;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks {
+  border: 1px solid #D3D3D3;
+  margin: 10px 0px;
+  height: 100%;
+  margin-bottom: 5px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .remarks-header, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-header, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .remarks-header, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-header {
+  background-color: #D3D3D3;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-file, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .remarks-text, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-file, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .remarks-text {
+  margin: 10px 5px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-file textarea, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .remarks-text textarea, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-file textarea, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .remarks-text textarea {
+  width: 100%;
+  resize: none;
+  border-color: #D3D3D3;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-file label, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-file label {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #D3D3D3;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-file .form-control, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-file .form-control {
+  display: inline-block;
+  width: 80%;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-file #upload-photo, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-file #upload-photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-file .filesize, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-file .filesize {
+  margin-top: 10px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .attatchment .attatchment-file .filesize .attention, .postleaverequest > .container-fluid > div .content .leaverequest-form .form form .notes .remarks .attatchment-file .filesize .attention {
+  color: #24298F;
+  margin-right: 5px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .action {
+  margin-top: 50px;
+  text-align: center;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .action input {
+  font-size: 18px;
+  margin: 0px 5px;
+  padding: 5px 25px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.postleaverequest > .container-fluid > div .content .leaverequest-form .form form .action input:last-of-type {
+  background-color: #24298F;
+  color: white;
+}
+.postleaverequest > .container-fluid > div .content .employee-days-table {
+  background-color: #D3D3D3;
+  padding: 5px 0px 5px 0px;
+}
+.postleaverequest > .container-fluid > div .content .employee-days-table .days {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 0px 0px 3px;
+}
+.postleaverequest .disable {
+  display: none;
+  max-height: 200px;
+  overflow: auto;
+  box-shadow: 0 0 4px gray;
+}
+.postleaverequest .show-data {
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 999999;
+  background-color: white;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  background-color: gray;
+}
+
+.show-error {
+  display: block;
+}
+
+.hide-error {
+  display: none;
+}
