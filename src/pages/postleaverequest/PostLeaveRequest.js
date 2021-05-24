@@ -304,34 +304,35 @@ class PostLeaveRequest extends Component {
         this.setState({isOpen:false})
     }
     handleButtonAddSubmitt(e){
-        e.preventDefault();
-        const isValid = this.validate();
+       e.preventDefault();
+        let isValid = this.validate();
         const requests = JSON.parse(localStorage.getItem('requests')) || [] ;
         if(this.props.location.request? isValid=true : isValid = this.validate()) ;
         if(isValid){
             const user = {
-                reqNo: Math.floor((Math.random() * 1000) + 1),
-                imageSrc: this.state.user.ImageSrc || male,
-                code : this.state.user.Code,
-                employeeName : this.state.user.EmployeeName,
-                jobTitle : this.state.user.JobTitle,
-                SalaryProfile : this.state.user.SalaryProfile,
-                joiningDate:this.state.user.JoiningDate,
-                location:this.state.user.location,
-                actualleaving : this.state.user.Actualleaving,
-                leaveToAvail  : this.state.leaveToAvail ,
+                reqNo: Math.floor((Math.random() * 1000) + 1) || this.state.requestreqNo,
+                imageSrc: this.state.user.ImageSrc || this.state.requestimageSrc || male,
+                code : this.state.user.Code || this.state.requestcode ,
+                employeeName : this.state.user.EmployeeName || this.state.requestemployeeName,
+                jobTitle : this.state.user.JobTitle || this.state.requestjobTitle,
+                SalaryProfile : this.state.user.SalaryProfile || this.state.requestSalaryProfile ,
+                joiningDate:this.state.user.JoiningDate || this.state.requestjoiningDate,
+                location:this.state.user.location || this.state.requestlocation,
+                actualleaving : this.state.user.Actualleaving || this.state.requestactualleaving,
+                leaveToAvail  : this.state.leaveToAvail || this.state.requestleavetoavail ,
                 requireLeaveSalaryAdvance : this.state.requireLeaveSalaryAdvance,
-                leaveDate : this.state.leaveDate,
-                rejoinDate : this.state.rejoinDate,
-                numberDays : this.state.numberDays,
-                leaveType : this.state.leaveType,
-                guarantor : this.state.guarantor,
-                replacement : this.state.replacement,
-                address : this.state.address,
-                contactNo : this.state.contactNo,
-                email : this.state.email,
-                remarks : this.state.remarks,
-                fileselected : this.fileInput.current.files[0].name
+                leaveDate : this.state.leaveDate || this.state.requestdateleave,
+                rejoinDate : this.state.rejoinDate || this.state.requestrejoinDate,
+                numberDays : this.state.numberDays || this.state.requestnuberday,
+                leaveType : this.state.leaveType || this.state.requestleaveType,
+                guarantor : this.state.guarantor || this.state.requestguarantor,
+                replacement : this.state.replacement || this.state.requestreplacement,
+                address : this.state.address || this.state.requestaddress,
+                contactNo : this.state.contactNo || this.state.requestcontactNo,
+                email : this.state.email || this.state.requestemail,
+                remarks : this.state.remarks || this.state.requestremarks,
+                fileselected : this.fileInput.current.files[0].name || this.state.requestrequestfileselected,
+                requestStatus: this.state.requeststatus[Math.floor(Math.random() * this.state.requeststatus.length)]
             }
             alert("request saved")
             console.log(requests);
@@ -345,7 +346,34 @@ class PostLeaveRequest extends Component {
             });
             requests.push(user);
             localStorage.setItem("requests", JSON.stringify(requests));
-        }
+            this.setState({user:{}});
+            this.setState({request:{}});
+            this.setState({leaveToAvail : "Local"});
+            this.setState({requireLeaveSalaryAdvance : "No"});
+            this.setState({leaveDate : ''});
+            this.setState({rejoinDate : ''});
+            this.setState({numberDays : ''});
+            this.setState({leaveType : ''});
+            this.setState({guarantor : ''});
+            this.setState({replacement : ''});
+            this.setState({address : ''});
+            this.setState({contactNo : ''});
+            this.setState({email : ''});
+            this.setState({remarks: ''});
+            this.setState({fileInput : ''});
+            this.setState({requestnuberday: ''});
+            this.setState({requestleavetype: ''});
+            this.setState({requestdateleave: ''});
+            this.setState({requestrejoinDate : ''});
+            this.setState({requestnumberDays : ''});
+            this.setState({requestleaveType : ''});
+            this.setState({requestguarantor : ''});
+            this.setState({requestreplacement : ''});
+            this.setState({requestaddress : ''});
+            this.setState({requestcontactNo : ''});
+            this.setState({requestemail : ''});
+            this.setState({requestremarks : ''});
+    }
     }
     componentDidMount(){
         this.setState({requestNumberdays : this.state.request.numberDays});
