@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { FaFlag, FaUndo, FaRegCalendarCheck, FaInfoCircle, FaPaperclip, FaGlobeAmericas, FaFemale } from "react-icons/fa";
+import { FaFlag, FaUndo,FaGreaterThan, FaRegCalendarCheck, FaInfoCircle, FaPaperclip, FaGlobeAmericas, FaFemale } from "react-icons/fa";
 import { BsPlusCircle } from "react-icons/bs";
 import male from '../../images/Artboard_2-512.png';
 import Table from '../../component/tableannualleave/Table';
@@ -31,9 +31,9 @@ class PostLeaveRequest extends Component {
             localValue: "Local",
             yesValue : "yes",
             noValue :"no",
-            leaveToAvail: "Local",
+            leaveToAvail: this.props.location.request?.leaveToAvail || "Local" ,
             requireLeaveSalaryAdvance: "No",
-            email:'',
+            email:'' || "",
             address :'',
             contactNo :'',
             numberDays :'',
@@ -61,6 +61,17 @@ class PostLeaveRequest extends Component {
             requestcontactNo : this.props.location.request?.contactNo,
             requestemail : this.props.location.request?.email,
             requestremarks : this.props.location.request?.remarks,
+            requestleavetoavail : this.props.location.request?.leaveToAvail,
+            requestfileselected : this.props.location.request?.fileselected,
+            requestreqNo: this.props.location.request?.reqNo,
+            requestimageSrc: this.props.location.request?.imageSrc || male,
+            requestcode : this.props.location.request?.code,
+            requestemployeeName : this.props.location.request?.employeeName,
+            requestjobTitle : this.props.location.request?.jobTitle,
+            requestSalaryProfile : this.props.location.request?.SalaryProfile,
+            requestjoiningDate:this.props.location.request?.joiningDate,
+            requestlocation:this.props.location.request?.location,
+            requestactualleaving : this.props.location.request?.actualleaving,
             //requestNum: Number || this.state.request.reqNo ,
             showError:false,
             showRejoinError:false,
@@ -71,7 +82,8 @@ class PostLeaveRequest extends Component {
             showLeaveTypeError:false, 
             showguarantorError:false,
             showreplacementError: false,
-            requestNumberdays:""
+            requestNumberdays:"",
+            requeststatus:["final-level-approved","hold","returned","underapproval","closed-transaction","request-level"]
           };
           this.handleChangeSearchTerm = this.handleChangeSearchTerm.bind(this);
           this.handleLeaveTypeChange = this.handleLeaveTypeChange.bind(this);
@@ -138,8 +150,8 @@ class PostLeaveRequest extends Component {
         this.setState({showAddressError:false});
     }
     handleChangeEmail = (e) => {
-        this.setState({ email: e.target.value });
         this.setState({ requestemail: e.target.value });
+        this.setState({ email: e.target.value });
         this.setState({showEmailError:false});
     }
     handleChangeContactNo = (e) => {
@@ -156,7 +168,13 @@ class PostLeaveRequest extends Component {
         this.setState({user});
     }
     handleFileSelect = (e) => {
-        this.setState({ fileselected: this.fileInput.current.files[0].name });
+        if (this.fileInput.current.files[0].size > 1e6) {
+            window.alert("Please upload a file smaller than 1 MB");
+            this.setState({ fileselected: "Upload another file" });
+            return false;
+        }else{
+         this.setState({ fileselected: this.fileInput.current.files[0].name });
+        }
     }
     validate = ()=>{
         let leavedateError = "";
@@ -171,7 +189,7 @@ class PostLeaveRequest extends Component {
         if(!this.state.leaveDate){
             leavedateError = "Leave Date is Required";
         }
-        if(!this.state.email){
+        if(this.state.requestemail==="" || this.state.requestemail===" " || !this.state.email){
             emailError = "Email is Required";
         }
         if(!this.state.address){
@@ -212,56 +230,87 @@ class PostLeaveRequest extends Component {
     }
     handleSubmit = (e) =>{
         e.preventDefault();
-        const isValid = this.validate();
+        let isValid = this.validate();
         const requests = JSON.parse(localStorage.getItem('requests')) || [] ;
+        if(this.props.location.request? isValid=true : isValid = this.validate()) ;
         if(isValid){
             const user = {
-                reqNo: requests.length + 1,
-                imageSrc: this.state.user.ImageSrc || male,
-                code : this.state.user.Code,
-                employeeName : this.state.user.EmployeeName,
-                jobTitle : this.state.user.JobTitle,
-                SalaryProfile : this.state.user.SalaryProfile,
-                joiningDate:this.state.user.JoiningDate,
-                location:this.state.user.location,
-                actualleaving : this.state.user.Actualleaving,
-                leaveToAvail  : this.state.leaveToAvail ,
+                reqNo: Math.floor((Math.random() * 1000) + 1) || this.state.requestreqNo,
+                imageSrc: this.state.user.ImageSrc || this.state.requestimageSrc || male,
+                code : this.state.user.Code || this.state.requestcode ,
+                employeeName : this.state.user.EmployeeName || this.state.requestemployeeName,
+                jobTitle : this.state.user.JobTitle || this.state.requestjobTitle,
+                SalaryProfile : this.state.user.SalaryProfile || this.state.requestSalaryProfile ,
+                joiningDate:this.state.user.JoiningDate || this.state.requestjoiningDate,
+                location:this.state.user.location || this.state.requestlocation,
+                actualleaving : this.state.user.Actualleaving || this.state.requestactualleaving,
+                leaveToAvail  : this.state.leaveToAvail || this.state.requestleavetoavail ,
                 requireLeaveSalaryAdvance : this.state.requireLeaveSalaryAdvance,
-                leaveDate : this.state.leaveDate,
-                rejoinDate : this.state.rejoinDate,
-                numberDays : this.state.numberDays,
-                leaveType : this.state.leaveType,
-                guarantor : this.state.guarantor,
-                replacement : this.state.replacement,
-                address : this.state.address,
-                contactNo : this.state.contactNo,
-                email : this.state.email,
-                remarks : this.state.remarks,
-                fileselected : this.fileInput.current.files[0].name
+                leaveDate : this.state.leaveDate || this.state.requestdateleave,
+                rejoinDate : this.state.rejoinDate || this.state.requestrejoinDate,
+                numberDays : this.state.numberDays || this.state.requestnuberday,
+                leaveType : this.state.leaveType || this.state.requestleaveType,
+                guarantor : this.state.guarantor || this.state.requestguarantor,
+                replacement : this.state.replacement || this.state.requestreplacement,
+                address : this.state.address || this.state.requestaddress,
+                contactNo : this.state.contactNo || this.state.requestcontactNo,
+                email : this.state.email || this.state.requestemail,
+                remarks : this.state.remarks || this.state.requestremarks,
+                fileselected : this.fileInput.current.files[0].name || this.state.requestrequestfileselected,
+                requestStatus: this.state.requeststatus[Math.floor(Math.random() * this.state.requeststatus.length)]
             }
-            console.log("user Code",user.code)
-            /*const filterdRequests = .filter((request => user.Code !== request.code && user.leaveType !== request.leaveType));
-            console.log("filter" , filterdRequests);
-            console.log(requests);
-            console.log(user);*/
             alert("request saved")
-            /*const filterdRequests = requests.filter(function(request) {
-                return  ( (user.code !== request.code) && (user.leaveType !== request.leaveType));
+            console.log(requests);
+            requests.map(request =>{
+                if(request.code == user.code && request.leaveType == user.leaveType){ 
+                    requests.splice(request, 1);
+                }
+                else{
+                    
+                }
             });
-            console.log("filtered" , filterdRequests);*/
             requests.push(user);
             localStorage.setItem("requests", JSON.stringify(requests));
-        }
-        
-    } 
+            this.setState({user:{}});
+            this.setState({request:{}});
+            this.setState({leaveToAvail : "Local"});
+            this.setState({requireLeaveSalaryAdvance : "No"});
+            this.setState({leaveDate : ''});
+            this.setState({rejoinDate : ''});
+            this.setState({numberDays : ''});
+            this.setState({leaveType : ''});
+            this.setState({guarantor : ''});
+            this.setState({replacement : ''});
+            this.setState({address : ''});
+            this.setState({contactNo : ''});
+            this.setState({email : ''});
+            this.setState({remarks: ''});
+            this.setState({fileInput : ''});
+            this.setState({requestnuberday: ''});
+            this.setState({requestleavetype: ''});
+            this.setState({requestdateleave: ''});
+            this.setState({requestrejoinDate : ''});
+            this.setState({requestnumberDays : ''});
+            this.setState({requestleaveType : ''});
+            this.setState({requestguarantor : ''});
+            this.setState({requestreplacement : ''});
+            this.setState({requestaddress : ''});
+            this.setState({requestcontactNo : ''});
+            this.setState({requestemail : ''});
+            this.setState({requestremarks : ''});
+    }
+} 
     toggle =()=>{
         this.setState({isOpen:false})
     }
     handleButtonAddSubmitt(e){
         e.preventDefault();
+        const isValid = this.validate();
         const requests = JSON.parse(localStorage.getItem('requests')) || [] ;
+        if(this.props.location.request? isValid=true : isValid = this.validate()) ;
+        if(isValid){
             const user = {
-                reqNo: requests.length + 1,
+                reqNo: Math.floor((Math.random() * 1000) + 1),
                 imageSrc: this.state.user.ImageSrc || male,
                 code : this.state.user.Code,
                 employeeName : this.state.user.EmployeeName,
@@ -284,18 +333,19 @@ class PostLeaveRequest extends Component {
                 remarks : this.state.remarks,
                 fileselected : this.fileInput.current.files[0].name
             }
-            /*requests.filter((request => this.state.request.reqNo == request.reqNo)
-            .map(request =>(
-                console.log(request)
-             )
-            )
-            )*/
-            
+            alert("request saved")
+            console.log(requests);
+            requests.map(request =>{
+                if(request.code == user.code && request.leaveType == user.leaveType){ 
+                    requests.splice(request, 1);
+                }
+                else{
+                    
+                }
+            });
             requests.push(user);
             localStorage.setItem("requests", JSON.stringify(requests));
-            console.log(requests);
-            console.log(user);
-            alert("request saved")
+        }
     }
     componentDidMount(){
         this.setState({requestNumberdays : this.state.request.numberDays});
@@ -304,6 +354,7 @@ class PostLeaveRequest extends Component {
         console.log(this.props)
         console.log(this.props.location.request);
         console.log("fields",this.state.request.numberDays);
+        console.log("path",this.props.location.pathname);
         return (
             <div className="postleaverequest">
                 <div className="container-fluid">
@@ -367,7 +418,9 @@ class PostLeaveRequest extends Component {
                                                                 <li><span>Job Title</span> <span>{this.state.request.jobTitle || this.state.user.JobTitle}</span></li>
                                                                 <li><span>Salary profile </span><span>{this.state.request.SalaryProfile || this.state.user.SalaryProfile}</span></li>
                                                                 <li><span>Joining Date </span><span>{this.state.user.JoiningDate || this.state.request.joiningDate}</span></li>
-                                                                <li><span>Location </span>{this.state.user.location || this.state.request.location}<span></span></li>
+                                                                <li><span> Location </span> {this.state.user.location || this.state.request.location}
+                                                                 <span style={{marginLeft:"0px"}}><FaGreaterThan className={this.props.location.request || this.state.user.Code? "show":"disable"}/></span> {this.state.request.jobTitle || this.state.user.JobTitle} <span style={{marginLeft:"0px"}}><FaGreaterThan className={this.props.location.request || this.state.user.Code? "show":"disable"}/></span> {this.state.request.SalaryProfile || this.state.user.SalaryProfile}
+                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -393,12 +446,12 @@ class PostLeaveRequest extends Component {
                                                                                 <input className="form-check-input" type="radio" id="Abroad"
                                                                                     value={this.state.abroadValue}
                                                                                     name="Avail"
-                                                                                    onChange={this.handleChangeRadio} />Abroad
+                                                                                    onChange={this.handleChangeRadio} checked={this.state.leaveToAvail === "Abroad"}/>Abroad
                                                                             </label>
                                                                         </div>
                                                                         <div className="form-check form-check-inline">
                                                                             <label className="form-check-label">
-                                                                                <input className="form-check-input" type="radio" name="Avail" id="Local" value={this.state.localValue} onChange={this.handleChangeRadioLocal} defaultChecked />Local
+                                                                                <input className="form-check-input" type="radio" name="Avail" id="Local" value={this.state.localValue} onChange={this.handleChangeRadioLocal} checked={this.state.leaveToAvail === "Local"}/>Local
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -467,9 +520,13 @@ class PostLeaveRequest extends Component {
                                                                                 </label>
                                                                                 <select className="form-select" id="selectleavetype" value={this.state.requestleavetype} onChange={this.handleLeaveTypeChange}>
                                                                                     <option>{"--select Type Of Leave--"} </option>
-                                                                                    <option>One</option>
-                                                                                    <option>Two</option>
-                                                                                    <option>Three</option>
+                                                                                    <option>business</option>
+                                                                                    <option>moment</option>
+                                                                                    <option>weakness</option>
+                                                                                    <option>pleasures</option>
+                                                                                    <option>endures</option>
+                                                                                    <option>circumstances</option>
+                                                                                    <option>pleasures</option>
                                                                                 </select>
                                                                                 <div className={this.state.showLeaveTypeError ? "show-error" : "disable"} style={{color:"red" , fontSize:"14px"}}><FaInfoCircle/> {this.state.leaveTypeError}</div>
                                                                             </div>
@@ -501,9 +558,11 @@ class PostLeaveRequest extends Component {
                                                                             <div className="col-10 guarantor-selection">
                                                                                 <select className="form-select" id="selectguarantor" aria-label="select an option" value={this.state.requestguarantor} onChange={this.handleChangeguarantor}>
                                                                                     <option> --Select an Option--</option>
-                                                                                    <option>One</option>
-                                                                                    <option>Two</option>
-                                                                                    <option>Three</option>
+                                                                                    <option>saepe eveniet </option>
+                                                                                    <option>reiciendis voluptatibus</option>
+                                                                                    <option>similique sunt</option>
+                                                                                    <option>every pain avoided</option>
+                                                                                    <option>praesentium voluptatum</option>
                                                                                 </select>
                                                                                 <div className={this.state.showguarantorError ? "show-error" : "disable"} style={{color:"red" , fontSize:"14px"}}><FaInfoCircle/> {this.state.guarantorError}</div>
                                                                             </div>
@@ -517,9 +576,12 @@ class PostLeaveRequest extends Component {
                                                                             <div className="col-10 replacement-selection">
                                                                                 <select className="form-select" id="selectreplacement" aria-label="select an option" value={this.state.requestreplacement} onChange={this.handleChangereplacement}>
                                                                                     <option>--Select an Option--</option>
-                                                                                    <option>One</option>
-                                                                                    <option>Two</option>
-                                                                                    <option>Three</option>
+                                                                                    <option>majority</option>
+                                                                                    <option>reproduced</option>
+                                                                                    <option>undoubtable</option>
+                                                                                    <option>consectetur</option>
+                                                                                    <option>passage</option>
+                                                                                    <option>combined</option>
                                                                                 </select>
                                                                                 <div className={this.state.showreplacementError ? "show-error" : "disable"} style={{color:"red" , fontSize:"14px"}}><FaInfoCircle/> {this.state.replacementError}</div>
                                                                             </div>
@@ -584,9 +646,9 @@ class PostLeaveRequest extends Component {
                                                                             <h6>Attatchments</h6>
                                                                         </div>
                                                                         <div className="attatchment-file col-10">
-                                                                            <input type="text" className="form-control" id="inputfile" value={ this.state.fileselected || this.state.request.fileselected} />
+                                                                            <input type="text" className="form-control" id="inputfile" value={ this.state.fileselected || this.state.request.fileselected || ""} required/>
                                                                             <label htmlFor="upload-photo"><FaPaperclip /></label>
-                                                                            <input type="file" name="photo" id="upload-photo" ref={this.fileInput} onChange={this.handleFileSelect} />
+                                                                            <input type="file" name="photo" id="upload-photo" ref={this.fileInput} onChange={this.handleFileSelect} required/>
                                                                             <p className="filesize">
                                                                                 <span><FaInfoCircle className="attention" /></span>
                                                                                 JPEG, JPG, PNG, MS Word, PDF File Size 1MB Each                                                                              </p>

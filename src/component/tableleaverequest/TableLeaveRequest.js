@@ -26,6 +26,29 @@ class TableLeaveRequest extends Component {
             user
             )
     }
+    /*handlekey =(reqNo) =>{
+        console.log(reqNo);
+        this.setState({selectedreqno:reqNo});
+        console.log("code from selected row " , reqNo);
+        console.log("code of state " , this.state.selectedreqno);
+        console.log("users " , this.state.requests);
+        const filterRequest = this.state.requests.filter(function(request) {
+            console.log("request" ,request);
+            console.log("requestno" ,reqNo);
+            return  request.reqNo === reqNo;
+        });
+        console.log("filter",filterRequest);
+        console.log("filterleavetype",filterRequest[0].leaveType);
+        this.props.onSelectedRequest(filterRequest[0]);  
+    }*/
+    /*deletedrow = (select)=>{
+            for (var i =0; i< this.state.requests.length; i++) {
+            var deletedRequest= JSON.parse(this.state.requests[i]);
+            if (deletedRequest.reqNo == select) {
+                deletedRequest.splice(i, 1);
+            }
+        }
+    }*/
     renderTableRows = ()=>{
         const requests = JSON.parse(localStorage.getItem('requests'));
         return requests.filter((val)=> {
@@ -37,7 +60,7 @@ class TableLeaveRequest extends Component {
         })
         .map(request => {
                 return(
-                    <tr key={request.reqNo}>
+                    <tr key={request.reqNo} className={request.requestStatus}>
                         <td><Link to={{pathname : '/', request}}>{request.reqNo}</Link></td>
                         <td style={{width: '70px'}}><Link to={{pathname : '/', request}}><img src={request.imageSrc}/></Link></td>
                         <td><Link to={{pathname : '/', request}}>{request.code}</Link></td>
